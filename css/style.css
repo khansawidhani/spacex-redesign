@@ -1,0 +1,457 @@
+/* variables */
+
+:root {
+    --primary: #1E1E1E;
+    --dark: #121212;
+    --white: #FFFFFF;
+    --gray: #1D1D1D;
+    --light: #B9B8B8;
+    --border-light: rgba(63, 61, 61, 0.5);
+}
+
+/* basic css reset */
+
+*, *::before, *::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+
+html {
+    font-size: 62.5%;
+    /*setting up 1 rem = 10px */
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--primary);
+    color: var(--white);
+}
+
+::-webkit-scrollbar {
+    width: 1.4rem;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--light);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--white);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gray)
+}
+
+::selection, ::-moz-selection {
+    color: var(--dark);
+    background: var(--white);
+}
+
+header{
+    background-color: yellowgreen;
+    background: linear-gradient(rgba(0, 0, 0, .8), rgba(0, 0, 0, .1)), url(../images/earth-moon.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    color: var(--white);
+}
+header .wrapper{
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    border-bottom: 2px solid var(--border-light);
+    height: 8rem;
+}
+header .wrapper .logo img {
+    width: 35rem;
+    height: 6rem;
+    padding-left: 5rem;
+    padding-top: 2rem;
+}
+
+header .wrapper .navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 3rem 2.5rem 3rem 10rem;
+    height: 8rem;
+}
+
+
+header .wrapper .navbar .nav a {
+    color: var(--white);
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin-right: 3rem;
+    position: relative;
+    padding: 0.2rem;
+}
+header .wrapper .navbar .nav a:hover:after, header .wrapper .navbar .nav a.active:after{
+    	width: 90%;
+}
+header .wrapper .navbar .nav a::after {
+    content: '';
+    width: 0%;
+    position: absolute;
+    left: 0;
+    bottom: -3.2rem;
+    background-color: var(--white);
+    height: 0.1rem;
+    transition: width .3s ease-in-out;
+}
+header .wrapper .navbar .search{
+    background: var(--white);
+    padding: 1.5rem 1.5rem;
+    margin-right: 2rem;
+    margin-bottom: 0rem;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    border-radius: 5rem;
+}
+header .wrapper .navbar .search span{
+    margin-right: 1rem;
+}
+header .wrapper .navbar .search span i{
+    color: var(--dark);
+}
+header .wrapper .navbar .search input{
+    color: var(--light);
+}
+header .home{
+    position: relative;
+}
+header .home .social div{
+    width: 4rem;
+    height: 4rem;
+    border: 2px solid var(--white);
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .3s ease-in-out;
+    opacity: 0;
+    
+}
+@keyframes moveIn{
+    from{
+        transform: translateX(-7rem);
+    }
+    to{
+        transform: translateX(0rem);
+        opacity: 1;
+    }
+}
+header .home .social div a i{
+    color: var(--white);
+    font-size: 1.6rem;
+}
+header .home .social div:hover{
+    background-color: var(--white);
+}
+header .home .social div:hover a i{
+    color: var(--dark);
+}
+header .home .social{
+    border-right: 2px solid var(--border-light);
+    width: 9rem;
+    height: 89vh;
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+header .home .hero{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: calc(100vh - 8rem);
+    padding: 0 6rem 0 3rem;
+
+}
+header .home .hero > div{
+    flex: 1;
+}
+header .home .hero .text h1{
+    font-weight: 400;
+    font-size: 2rem;
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+header .home .hero .astronaut{
+    padding: 0 6rem 0 3rem;
+}
+header .home .hero .astronaut img{
+    height: 70vh;
+    transform: rotate(20deg);
+    animation: moveInSpace 12s ease-in-out infinite alternate;
+}
+@keyframes moveInSpace{
+    50%{
+        transform: translateY(10rem) rotate(-30deg) scale(0.8);
+    }
+}
+section.strip{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: var(--dark);
+    padding: 5rem 0;
+}
+section.strip h3{
+    color: var(--white);
+    font-size: 1.8rem;
+    font-weight: 500;
+}
+section.rocket{
+    display: grid;
+    grid-template-columns: 1fr 10rem 1fr;
+    grid-gap: 8rem;
+    padding: 10rem 0;
+}
+section.rocket .rocket-body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* justify-content: center; */
+}
+section.rocket .rocket-body span{
+    font-size: 0;
+    position: relative;
+}
+section.rocket .rocket-body span img{
+    width: 100%;
+}
+section.rocket .block{
+    width: 70%;
+}
+section.rocket .block h1{
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 3rem;
+}
+section.rocket .block h2{
+    text-transform: uppercase;
+    font-weight: 400;
+    margin-bottom: 2rem;
+}
+section.rocket .block h1{
+    font-size: 3rem;
+}
+section.rocket .block h2{
+    font-size: 1.4rem;
+}
+section.rocket .block .with-underline{
+    position: relative;
+}
+section.rocket .block .with-underline:before{
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -1rem;
+    display: block;
+    width: 38%;
+    height: .2rem;
+    background-color: var(--white);
+}
+section.rocket .block h1.with-underline:before{
+    width: 20%;
+}
+section.rocket .block p{
+    font-size: 1.2rem;
+    font-weight: 300;
+    line-height: 1.7;
+
+}
+section.rocket .block.payload{
+    padding-top: 10rem;
+}
+section.rocket .block.payload h2{
+    padding-left: 8rem;
+}
+section.rocket .block.dragon{
+    padding-top: 10rem;
+}
+section.rocket .block button{
+    margin-top: 1.5rem;
+}
+section.rocket .block.composite{
+    padding-top: 6rem;
+}
+section.rocket .block.first-stage{
+    padding-top: 6rem;
+}
+section.rocket .block.capacity{
+    padding-top: 4rem;
+    display: flex;
+    align-items: center;
+    
+}
+section.rocket .block.capacity > div:first-child{
+    margin-right: 4rem;
+}
+section.rocket .block.capacity h4{
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 1.2rem;
+    text-transform: uppercase;
+
+}
+section.rocket .block h4.with-underline:before{
+    bottom: -1rem;
+}
+section.rocket .block.capacity h6{
+    font-size: 4rem;
+    font-weight: 400;
+}
+section.rocket .block.capacity h6 small{
+    font-size: 1.2rem;
+}
+
+section.rocket .block.second-stage{
+    padding-top: 6rem;
+}
+section.rocket .right-block .block.capacity{
+    padding-top: 8rem;
+}
+section.rocket .right-block .block.capacity.single{
+    padding-top: 4rem;
+}
+section.rocket .right-block .block.engines{
+    display: flex;
+    justify-content: center;
+    padding-top: 4rem;
+}
+section.rocket .right-block .block.engines img{
+    width: 18rem;
+}
+section.rocket .right-block .block.merline{
+    padding-top: 6rem;
+    width: 70%;
+}
+section.rocket .right-block .block.merline h2{
+    font-size: 1.4rem;
+    padding-left: 10rem;
+    margin-bottom: 2.6rem;
+}
+section.rocket .right-block .floating-graphics{
+    position: sticky;
+    float: right;
+    top: 6rem;
+    margin-right: -8rem;
+}
+section.rocket .right-block .floating-graphics img{
+    height: 35rem;
+}
+section.rocket .rocket-body span:after, section.rocket .rocket-body span:nth-child(3):before{
+    content: '';
+    position: absolute;
+    display: block;
+    background-color: var(--white);
+    height: .2rem;
+    width: 0;
+    transition: width 1s ease-in-out;
+}
+section.rocket .rocket-body span:nth-child(1):after{
+    bottom: 2rem;
+    left: 97%;
+}
+section.rocket .rocket-body span:nth-child(2):after{
+    bottom: 61%;
+    right: 100%;
+}
+section.rocket .rocket-body span:nth-child(3):after{
+    bottom: 61%;
+    right: 90%;
+}
+section.rocket .rocket-body span:nth-child(3):before{
+    bottom: 27%;
+    left: 90%;
+}
+section.rocket .rocket-body span.active:nth-child(1):after{
+    width: 12rem;
+}
+section.rocket .rocket-body span.active:nth-child(2):after{
+    width: 18rem;
+}
+section.rocket .rocket-body span.active:nth-child(3):after{
+    width: 20rem;
+}
+section.rocket .rocket-body span.active:nth-child(3):before{
+    width: 16rem;
+}
+section.rocket .rocket-body span.active:nth-child(1){
+    animation: jump 1s ease-in-out forwards;
+}
+@keyframes jump{
+    50%{
+        transform: translateY(-5rem);
+    }
+}
+footer{
+    background-color: var(--dark);
+    padding: 6rem 0;
+}
+footer > div{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+footer .copyright .footer-logo{
+    height: 3rem;
+}
+footer .copyright span{
+    margin-top: .5rem;
+    display: inline-block;
+    font-size: 1.2rem;
+}
+footer h1{
+    font-size: 1.8rem;
+    position: relative;
+    margin-bottom: 3rem;
+    font-weight: 500;
+}
+footer h1:after{
+    content: '';
+    position: absolute;
+    display: block;
+    background: var(--white);
+    height: .2rem;
+    width: 6rem;
+    left: 0;
+    bottom: -.8rem;
+}
+footer ul{
+    list-style-type: none;
+}
+footer ul li:nth-child(even){
+    margin: 1rem 0;
+}
+footer ul li a{
+    font-size: 1.4rem;
+    color: var(--light);
+    transition: all .3s ease-in-out;
+}
+footer ul li a:hover{
+    color: var(--white);
+}
+footer .footer-socials a{
+    font-size: 2.2rem;
+    color: var(--light);
+    margin-right: 2rem;
+    transition: all .3s ease-in-out;
+    display: inline-block;
+}
+footer .footer-socials a:hover{
+    color: var(--white);
+    transform: scale(1.3);
+}
